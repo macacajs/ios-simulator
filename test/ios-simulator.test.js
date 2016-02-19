@@ -165,7 +165,6 @@ describe('lib/ios-simulator.js', function() {
     devices.forEach(function(device) {
       if (device.name === 'iPhone 5s') {
         Simulator.open(device.udid).then(function(data) {
-          console.log(data);
           done();
         }).catch(function(err) {
           console.log(err);
