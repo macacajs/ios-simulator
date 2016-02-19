@@ -13,8 +13,11 @@ all: test
 install:
 	@npm install
 test: install
-	@NODE_ENV=test $(BIN) $(FLAGS) \
-		${npm_bin}/istanbul cover ${npm_bin}/_mocha
+	@node --harmony \
+		${npm_bin}/istanbul cover ${npm_bin}/_mocha \
+		-- \
+		--timeout 10000 \
+		--require co-mocha
 travis: install
 	@NODE_ENV=test $(BIN) $(FLAGS) \
 		${npm_bin}/istanbul cover	${npm_bin}/_mocha --report lcovonly
