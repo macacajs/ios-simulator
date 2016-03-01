@@ -55,7 +55,9 @@ describe('lib/ios-simulator.js', function() {
           done();
           return;
         }
-        Simulator.boot(device.udid, function(err, data) {
+        var sim = new Simulator();
+        sim.setDeviceId(device.udid);
+        sim.boot(function(err, data) {
           if (err) {
             console.log(err);
             done();
@@ -82,7 +84,9 @@ describe('lib/ios-simulator.js', function() {
           done();
           return;
         }
-        Simulator.boot(device.udid).then(function(data) {
+        var sim = new Simulator();
+        sim.setDeviceId(device.udid);
+        sim.boot().then(function(data) {
           console.log(data);
           done();
         }).catch(function(err) {
@@ -101,7 +105,9 @@ describe('lib/ios-simulator.js', function() {
           done();
           return;
         }
-        Simulator.shutdown(device.udid, function(err, data) {
+        var sim = new Simulator();
+        sim.setDeviceId(device.udid);
+        sim.shutdown(function(err, data) {
           if (err) {
             console.log(err);
             done();
@@ -122,7 +128,9 @@ describe('lib/ios-simulator.js', function() {
           done();
           return;
         }
-        Simulator.shutdown(device.udid).then(function(data) {
+        var sim = new Simulator();
+        sim.setDeviceId(device.udid);
+        sim.shutdown().then(function(data) {
           console.log(data);
           done();
         }).catch(function(err) {
@@ -142,7 +150,9 @@ describe('lib/ios-simulator.js', function() {
     var devices = yield Simulator.getDevices();
     devices.forEach(function(device) {
       if (device.name === 'iPhone 5s') {
-        Simulator.open(device.udid, function(err, data) {
+        var sim = new Simulator();
+        sim.setDeviceId(device.udid);
+        sim.open(function(err, data) {
           if (err) {
             console.log(err);
             done();
@@ -164,7 +174,9 @@ describe('lib/ios-simulator.js', function() {
     var devices = yield Simulator.getDevices();
     devices.forEach(function(device) {
       if (device.name === 'iPhone 5s') {
-        Simulator.open(device.udid).then(function(data) {
+        var sim = new Simulator();
+        sim.setDeviceId(device.udid);
+        sim.open().then(function(data) {
           done();
         }).catch(function(err) {
           console.log(err);
@@ -172,27 +184,5 @@ describe('lib/ios-simulator.js', function() {
         });
       }
     });
-  });
-
-  it('erase callback', function *(done) {
-    try {
-      yield Simulator.killAll();
-    } catch(e) {
-      console.log(e.stack);
-    }
-    var devices = yield Simulator.getDevices();
-    var _device;
-    devices.forEach(function(device) {
-      if (device.name === 'iPhone 5s') {
-        _device = device.udid;
-      }
-    });
-    try {
-      yield Simulator.shutdown(_device);
-    } catch(e) {
-      console.log(e.stack);
-    }
-    yield Simulator.erase(_device);
-    done();
   });
 });
