@@ -1,6 +1,6 @@
 {
   "name": "ios-simulator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ios-simulator",
   "keywords": [
     "ios-simulator"
@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "macaca-utils": "^0.1.6",
-    "reliable-logger": "^1.0.7"
+    "xlogger": "^1.0.0"
   },
   "devDependencies": {
     "co-mocha": "*",
