@@ -1,6 +1,6 @@
 {
   "name": "ios-simulator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "ios-simulator",
   "keywords": [
     "ios-simulator"
@@ -11,8 +11,8 @@
     "url": "git://github.com/xudafeng/ios-simulator.git"
   },
   "dependencies": {
-    "macaca-utils": "^0.1.6",
-    "xlogger": "^1.0.0"
+    "xlogger": "^1.0.0",
+    "xutil": "~1.0.0"
   },
   "devDependencies": {
     "co-mocha": "*",
