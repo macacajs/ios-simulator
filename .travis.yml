@@ -1,9 +1,4 @@
-language: node_js
-sudo: false
-node_js:
-  - "4.1.2"
-notifications:
-  email:
-  - xudafeng@126.com
-script: make travis
-after_script: "npm install coveralls@2 && cat ./coverage/lcov.info | coveralls"
+language: objective-c
+osx_image: xcode7.3
+script:
+  - make test
