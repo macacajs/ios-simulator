@@ -1,14 +1,14 @@
 {
   "name": "ios-simulator",
-  "version": "1.0.7",
-  "description": "ios-simulator",
+  "version": "1.0.8",
+  "description": "iOS Simulator Node.js wrapper",
   "keywords": [
     "ios-simulator"
   ],
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/xudafeng/ios-simulator.git"
+    "url": "git://github.com/macacajs/ios-simulator.git"
   },
   "dependencies": {
     "plist": "~1.2.0",
@@ -30,9 +30,6 @@
   "pre-commit": [
     "jshint"
   ],
-  "homepage": "https://github.com/xudafeng/ios-simulator",
-  "author": "xudafeng",
-  "email": "xudafeng@126.com",
-  "blog": "http://xdf.me",
+  "homepage": "https://github.com/macacajs/ios-simulator",
   "license": "MIT"
 }
