@@ -1,6 +1,6 @@
 {
   "name": "ios-simulator",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "iOS Simulator Node.js wrapper",
   "keywords": [
     "ios-simulator"
