@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const chalk = require('chalk');
+const program = require('commander');
+
+const EOL = require('os').EOL;
+const pkg = require('../package.json');
+
+const Simulator = require('..');
+
+program
+  .option('-u, --udid <s>',     'udid of device')
+  .option('-n, --name <s>',     'get udid by name of device')
+  .option('--verbose',          'show more debugging information')
+  .option('-v, --versions',     'output version infomation')
+  .usage('');
+
+program.parse(process.argv);
+
+if (program.versions) {
+  console.info(`${EOL} ${chalk.grey(pkg.version)} ${EOL}`);
+  process.exit(0);
+}
+
+if (program.name) {
+  if (program.verbose) {
+    console.log(`get device name: *${program.name}*`);
+  }
+
+  var matchedDevice;
+  Simulator.getDevices((error, devices) => {
+    devices.forEach(device => {
+      if (device.name === program.name && device.available) {
+        matchedDevice = device;
+      }
+    });
+    if (matchedDevice) {
+      console.log(matchedDevice.udid);
+    }
+  });
+}
