@@ -1,6 +1,6 @@
 {
   "name": "ios-simulator",
-  "version": "1.0.11",
+  "version": "1.0.13",
   "description": "iOS Simulator Node.js wrapper",
   "keywords": [
     "simulator",
@@ -29,7 +29,7 @@
     "should": "*",
     "jshint": "*",
     "istanbul": "*",
-    "pre-commit": "1.1.1"
+    "pre-commit": "*"
   },
   "scripts": {
     "test": "make test",
