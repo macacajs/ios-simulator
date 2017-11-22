@@ -21,7 +21,7 @@
 
 ## Installment
 
-``` bash
+```bash
 $ npm i ios-simulator --save
 ```
 
@@ -29,11 +29,11 @@ $ npm i ios-simulator --save
 
 Enable Developer Mode:
 
-``` bash
+```bash
 $ DevToolsSecurity -enable
 ```
 
-``` bash
+```bash
 $ npm i ios-simulator -g
 $ ios-simulator -n 'iPhone 6s'
 $ xcrun simctl shutdown `ios-simulator -n 'iPhone 6s'`
