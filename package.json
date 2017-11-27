@@ -32,8 +32,8 @@
     "pre-commit": "*"
   },
   "scripts": {
-    "test": "make test",
-    "jshint": "make jshint"
+    "test": "mocha",
+    "lint": "jshint ."
   },
   "pre-commit": [
     "jshint"

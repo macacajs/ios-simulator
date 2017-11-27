@@ -143,6 +143,7 @@ describe('lib/ios-simulator.js', function() {
   it('open promise', function *(done) {
 
     sim.open().then(function(data) {
+      console.log(data);
       done();
     }).catch(function(err) {
       console.log(err);
