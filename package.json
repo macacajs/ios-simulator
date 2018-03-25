@@ -25,19 +25,20 @@
   },
   "devDependencies": {
     "co-mocha": "*",
-    "mocha": "*",
-    "should": "*",
-    "jshint": "*",
+    "git-contributor": "^1.0.3",
     "istanbul": "*",
-    "pre-commit": "*"
+    "jshint": "*",
+    "mocha": "*",
+    "pre-commit": "*",
+    "should": "*"
   },
   "scripts": {
     "test": "mocha",
-    "lint": "jshint ."
+    "lint": "jshint .",
+    "contributor": "git-contributor"
   },
   "pre-commit": [
     "lint"
   ],
-  "homepage": "https://github.com/macacajs/ios-simulator",
   "license": "MIT"
 }
