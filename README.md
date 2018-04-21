@@ -48,7 +48,7 @@ $ open -a Simulator --args -CurrentDeviceUDID `ios-simulator -n 'iPhone 6s'`
 | :---: | :---: | :---: |
 
 
-This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor.git), auto upated at `Sun Mar 25 2018 16:02:59 GMT+0800`.
+This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto upated at `Sat Apr 21 2018 19:32:17 GMT+0800`.
 
 <!-- GITCONTRIBUTOR_END -->
 
