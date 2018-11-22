@@ -19,6 +19,18 @@
 
 > iOS Simulator Node.js wrapper
 
+<!-- GITCONTRIBUTOR_START -->
+
+## Contributors
+
+|[<img src="https://avatars1.githubusercontent.com/u/1011681?v=4" width="100px;"/><br/><sub><b>xudafeng</b></sub>](https://github.com/xudafeng)<br/>|[<img src="https://avatars1.githubusercontent.com/u/1044425?v=4" width="100px;"/><br/><sub><b>ziczhu</b></sub>](https://github.com/ziczhu)<br/>|[<img src="https://avatars0.githubusercontent.com/u/4576123?v=4" width="100px;"/><br/><sub><b>CodeToSurvive1</b></sub>](https://github.com/CodeToSurvive1)<br/>
+| :---: | :---: | :---: |
+
+
+This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto upated at `Thu Nov 22 2018 22:30:54 GMT+0800`.
+
+<!-- GITCONTRIBUTOR_END -->
+
 ## Installment
 
 ```bash
@@ -39,18 +51,6 @@ $ ios-simulator -n 'iPhone 6s'
 $ xcrun simctl shutdown `ios-simulator -n 'iPhone 6s'`
 $ open -a Simulator --args -CurrentDeviceUDID `ios-simulator -n 'iPhone 6s'`
 ```
-
-<!-- GITCONTRIBUTOR_START -->
-
-## Contributors
-
-|[<img src="https://avatars1.githubusercontent.com/u/1011681?v=4" width="100px;"/><br/><sub><b>xudafeng</b></sub>](https://github.com/xudafeng)<br/>|[<img src="https://avatars1.githubusercontent.com/u/1044425?v=4" width="100px;"/><br/><sub><b>ziczhu</b></sub>](https://github.com/ziczhu)<br/>|[<img src="https://avatars0.githubusercontent.com/u/4576123?v=4" width="100px;"/><br/><sub><b>CodeToSurvive1</b></sub>](https://github.com/CodeToSurvive1)<br/>
-| :---: | :---: | :---: |
-
-
-This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto upated at `Sat Apr 21 2018 19:32:17 GMT+0800`.
-
-<!-- GITCONTRIBUTOR_END -->
 
 ## License
 
