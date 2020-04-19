@@ -17,7 +17,7 @@
   "loopfunc": false,
   "lastsemic": true,
   "funcscope": false,
-  "esnext": true,
+  "esversion": 8,
   "noyield": true,
   "browser": true,
   "nonstandard": true,
