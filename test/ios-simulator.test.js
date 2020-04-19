@@ -5,9 +5,12 @@ var Simulator = require('..');
 var sim = null;
 
 async function resetEnv() {
-   await Simulator.killAll().catch(e => {
-    console.log(e.stack);
-  });
+  try {
+    await Simulator.killAll();
+    console.log('killed all simulators');
+  } catch (e) {
+    console.log('failed to kill all simulators');
+  }
 }
 
 async function getSim() {
@@ -26,7 +29,7 @@ async function getSim() {
       sim.setDeviceId(matchedDevice.udid);
       sim.shutdown();
     } catch (e) {
-      console.log(e);
+      console.log('cannot shutdown');
     }
   }
 
@@ -60,14 +63,14 @@ describe('lib/ios-simulator.js', function() {
         done();
         return;
       }
-      console.log(data);
+      console.log(`got ${data.length} devices`);
       done();
     });
   });
 
   it('getDevices promise', function(done) {
     Simulator.getDevices().then(function(data) {
-      console.log(data);
+      console.log(`got ${data.length} devices`);
       done();
     }).catch(function(err) {
       console.log(err);
@@ -76,7 +79,6 @@ describe('lib/ios-simulator.js', function() {
   });
 
   it('boot callback', function(done) {
-
     sim.boot(function(err, data) {
       if (err) {
         console.log(err);
@@ -89,7 +91,6 @@ describe('lib/ios-simulator.js', function() {
   });
 
   it('boot promise', function(done) {
-
     sim.boot().then(function(data) {
       console.log(data);
       done();
@@ -101,7 +102,6 @@ describe('lib/ios-simulator.js', function() {
   });
 
   it('shutdown callback', function(done) {
-
     sim.shutdown(function(err, data) {
       if (err) {
         console.log(err);
@@ -125,7 +125,6 @@ describe('lib/ios-simulator.js', function() {
   });
 
   it('open callback', function(done) {
-
     sim.open(function(err, data) {
       if (err) {
         console.log(err);
@@ -138,7 +137,6 @@ describe('lib/ios-simulator.js', function() {
   });
 
   it('open promise', function(done) {
-
     sim.open().then(function(data) {
       console.log(data);
       done();
@@ -150,7 +148,6 @@ describe('lib/ios-simulator.js', function() {
 
 
   it('open success', function(done) {
-
     sim.open().then(function() {
       done();
     }).catch(function(err) {
