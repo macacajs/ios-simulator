@@ -4,20 +4,18 @@ var Simulator = require('..');
 
 var sim = null;
 
-var resetEnv = function *() {
-  try {
-    yield Simulator.killAll();
-  } catch (e) {
+async function resetEnv() {
+   await Simulator.killAll().catch(e => {
     console.log(e.stack);
-  }
-};
+  });
+}
 
-var getSim = function *() {
-  var devices = yield Simulator.getDevices();
+async function getSim() {
+  var devices = await Simulator.getDevices();
   var matchedDevice = null;
 
   devices.forEach(function(device) {
-    if (device.name === 'iPhone 5s' && device.available) {
+    if (device.name === 'iPhone 8' && device.available) {
       matchedDevice = device;
     }
   });
@@ -26,7 +24,7 @@ var getSim = function *() {
     try {
       sim = new Simulator();
       sim.setDeviceId(matchedDevice.udid);
-      yield sim.shutdown();
+      sim.shutdown();
     } catch (e) {
       console.log(e);
     }
@@ -38,23 +36,24 @@ var getSim = function *() {
   } else {
     sim = null;
   }
-};
+}
 
 describe('lib/ios-simulator.js', function() {
+  this.timeout(10 * 60 * 1000);
 
-  beforeEach(function *() {
-    yield getSim();
+  before(function () {
+    getSim();
   });
 
-  afterEach(function *() {
-    yield resetEnv();
+  afterEach(function () {
+    resetEnv();
   });
 
   it('should be ok', function() {
     Simulator.should.be.ok;
   });
 
-  it('getDevices callback', function *(done) {
+  it('getDevices callback', function(done) {
     Simulator.getDevices(function(err, data) {
       if (err) {
         console.log(err);
@@ -76,7 +75,7 @@ describe('lib/ios-simulator.js', function() {
     });
   });
 
-  it('boot callback', function *(done) {
+  it('boot callback', function(done) {
 
     sim.boot(function(err, data) {
       if (err) {
@@ -89,7 +88,7 @@ describe('lib/ios-simulator.js', function() {
     });
   });
 
-  it('boot promise', function *(done) {
+  it('boot promise', function(done) {
 
     sim.boot().then(function(data) {
       console.log(data);
@@ -101,7 +100,7 @@ describe('lib/ios-simulator.js', function() {
 
   });
 
-  it('shutdown callback', function *(done) {
+  it('shutdown callback', function(done) {
 
     sim.shutdown(function(err, data) {
       if (err) {
@@ -115,8 +114,7 @@ describe('lib/ios-simulator.js', function() {
 
   });
 
-  it('shutdown promise', function *(done) {
-
+  it('shutdown promise', function(done) {
     sim.shutdown().then(function(data) {
       console.log(data);
       done();
@@ -124,10 +122,9 @@ describe('lib/ios-simulator.js', function() {
       console.log(err);
       done();
     });
-
   });
 
-  it('open callback', function *(done) {
+  it('open callback', function(done) {
 
     sim.open(function(err, data) {
       if (err) {
@@ -140,7 +137,7 @@ describe('lib/ios-simulator.js', function() {
     });
   });
 
-  it('open promise', function *(done) {
+  it('open promise', function(done) {
 
     sim.open().then(function(data) {
       console.log(data);
