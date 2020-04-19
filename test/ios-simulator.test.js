@@ -147,4 +147,15 @@ describe('lib/ios-simulator.js', function() {
       done();
     });
   });
+
+
+  it('open success', function(done) {
+
+    sim.open().then(function() {
+      done();
+    }).catch(function(err) {
+      done(err);
+    });
+
+  });
 });
